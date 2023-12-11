@@ -4,12 +4,15 @@ bool bit2(int n);
 bool bit3(int n);
 bool bit_rec(int n);
 int index(int n, int i);
+int index1(int n, int i, int j);
+void bynar(int n);
 
 int main(){
 	int n = 0;
 	int  i = 0;
+	int j = 0;
 	std::cin >> n;
-	std::cout << index(n, i) << std::endl;
+	bynar(n);
 
 }
 
@@ -52,7 +55,23 @@ bool bit_rec(size_t n){
 	return (n & 1) ^ bit_rec(n >> 1);
 }
 
+int index1(int n, int i, int j){
+	if((n & (1 << i)) == (n & (1 << j))){
+		return n;
+	} 
+	n ^= (1 << i);
+	n ^= (1 << j);
+	return n;
+}
 
 int index(int n, int i){
 	return n | (1 << i);
+}
+
+void bynar(int n){
+	if(n == 0){
+		return;
+	}
+	bynar( n >> 1);
+	std::cout << (n & 1);
 }
