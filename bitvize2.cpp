@@ -7,7 +7,7 @@ int sum2(int, int);
 int sub1(int, int);
 int sub2(int, int);
 int mull(int, int);
-int mull_rec(int a, int b);
+int mull_rec(unsigned int a, unsigned int b);
 
 int main(){
 	int n = 0;
@@ -84,7 +84,7 @@ int mull(int a, int b){
 }
 
 
-int mull_rec(int a, int b){
+int mull_rec(unsigned int a, unsigned int b){
 	if(b == 0){
 		return 0;
 	}
