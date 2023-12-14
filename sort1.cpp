@@ -45,15 +45,16 @@ void buble(int* arr, int n){
 }
 
 void insert_S(int* arr, int s){
-    int index = 0;
-    for(int i = 0; i < s; ++i){
-        if(arr[i] < arr[index]){
-            int tmp = arr[index];
-    
-            for(;  index > 0; --index){
-                 arr[index] = arr[index -1];
-            }    
-                 arr[index- 1] = tmp;
-        }
+    int key = 0;
+	int j = 0;
+    for(int i = 1; i < s; ++i){
+        key = arr[i];
+		j = i - 1;
+		
+		while(j >= 0 && key < arr[j]){
+			arr[j + 1] = arr[j];
+			j = j - 1;
+		}
+		arr[j + 1] = key;
     }
 }
